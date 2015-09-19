@@ -37,7 +37,7 @@ module.exports = config;
     --zip-file fileb://im_kayac.zip 
 ```
 
-- Upload function
+- Update function
 
 ```sh
 % zip -r your_function.zip index.js config.js node_modules
