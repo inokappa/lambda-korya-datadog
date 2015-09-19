@@ -1,0 +1,5 @@
+.node-version
+config.js
+*.bk
+*.zip
+node_modules

@@ -1,0 +1,6 @@
+var config = {};
+
+config.username = 'user@example.com';
+config.password = 'your_password';
+
+module.exports = config;
