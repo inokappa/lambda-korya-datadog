@@ -123,6 +123,8 @@ EOT
 
 ### Create Event source mapping
 
+- Management console
+
 ![2015091902.png](https://qiita-image-store.s3.amazonaws.com/0/87189/b956061d-3fd1-cf1b-8dd1-e48ce87eddd0.png "2015091902.png")
 
 ### Publish to topic
