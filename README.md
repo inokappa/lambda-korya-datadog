@@ -144,3 +144,65 @@ output.
 ### Check your Datadog Event Dashboard
 
 ![2015091903.png](https://qiita-image-store.s3.amazonaws.com/0/87189/1b83d745-81ad-39e1-653f-8a943aab8cbe.png "2015091903.png")
+
+***
+
+## lambda-local
+
+### reference
+
+- https://github.com/ashiina/lambda-local
+- http://ashiina.github.io/2015/01/lambda-local/
+
+### install
+
+```sh
+% npm install lambda-local
+```
+
+### dependency
+
+```sh
+% export NODE_PATH='/path/to/lambda-korya-xxxxxxx/node_modules/lambda-local/node_modules'
+% export AWS_ACCESS_KEY_ID='AKXXXXXXXXXXXXXXXXXX'
+% export AWS_SECRET_ACCESS_KEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+```
+
+### event source
+
+```javascript
+% cat << EOT >> test.js
+module.exports = {
+  "default": "test",
+  "title": "Lambda Message Test",
+  "message": "foo bar",
+  "url": "http://xxx.example.com/"
+};
+EOT
+```
+
+### execute
+
+```sh
+% lambda-local -l index_test.js.test -h handler -e test.js
+```
+
+output.
+
+```
+% lambda-local -l index_test.js.test -h handler -e test.js
+Loading event
+Logs
+----
+START RequestId: 8f1cf24a-6637-11d2-de89-d7c1a17df67c
+Sending Datadog event: 
+URL: https://app.datadoghq.com/api/v1/events?api_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Message: {"title":"Lambda Message Test","text":"foo bar","alert_type":"error"}
+Message send successful!  Server responded with: {"status": "ok", "event": {"priority": null, "date_happened": 1442717663, "handle": null, "title": "Lambda Message Test", "url": "https://app.datadoghq.com/event/event?id=12345678901234567", "text": "foo bar", "tags": null, "related_event_id": null, "id": 12345678901234567}}
+END
+
+
+Message
+------
+
+```

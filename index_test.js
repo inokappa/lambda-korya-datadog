@@ -6,7 +6,8 @@ var url = 'https://app.datadoghq.com/api/v1/events?api_key=' + config.api_key;
 
 exports.handler = function(event, context) {
   // Generate formData
-  var message = JSON.parse(event.Records[0].Sns.Message);
+  // var message = JSON.parse(event.Records[0].Sns.Message);
+  var message = event;
   var formData = {
     "title": message.title,
     "text": message.message,
